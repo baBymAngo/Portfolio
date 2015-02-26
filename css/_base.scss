@@ -1,0 +1,373 @@
+/* Colors */
+$text : #434242;
+$darktext: darken($text, 15%);
+$green : #1EA076;
+$darkgreen: #014225;
+$lightgrey : lighten($text, 60%);
+$pinkgrey: #F3EFE0;
+$contactgrey: #424242;
+
+/* Page Defaults */
+html {
+	-webkit-font-smoothing: subpixel-antialiased;
+	height: 100%;
+}
+body {
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.8;
+	font-weight: 300;
+	color: $text;
+	height: 100%
+}
+::selection {
+  background: lighten($green, 40%);
+}
+::-moz-selection {
+  background: lighten($green, 40%);
+}
+a {
+	position: relative;
+	color: $green;
+	text-decoration: none;
+}
+p a {
+	font-weight: 400;
+	@include transition(border-bottom, 0.1s, ease);
+	&:hover {
+		border-bottom: 2px solid $green;
+	}
+}
+img {
+	max-width: 100%;
+}
+strong {
+	color: $darktext;
+	font-weight: 700;
+}
+h1 {
+	color: $green;
+	font-size: 3.8em;
+	font-weight: 300;
+	line-height: 1.6;
+	text-align: center;
+}
+h2 {
+	font-size: 1.2em;
+	font-weight: 300;
+	max-width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 1.6;
+}
+h4 {
+	font-size: 1.8em;
+	font-weight: 300;
+	color: $green;
+	line-height: 1.8;
+	padding-bottom: 8px;
+}
+h5 {
+	font-size: 1.1em;
+	font-weight: 700;
+	color: $darktext;
+	padding-bottom: 7px;
+}
+.container {
+	max-width: 860px;
+	margin: 0 auto;
+}
+.page-section {
+	padding: 60px 0;
+}
+.section-header {
+	padding-bottom: 35px;
+	margin-bottom: 35px;
+	border-bottom: 1px solid $lightgrey;
+}
+.section-title {
+	padding-bottom: 10px;
+}
+
+/* Sidemenu */
+.side-menu {
+	position: fixed;
+	top: 45%; right: 50px;
+}
+.side-menu li {
+	display: block;
+	text-align: right;
+	a {
+		display: block;
+		&:hover {
+			span { opacity: 1; }
+			i {
+				border: 1px solid $green;
+				background-color: transparent;
+				@include scale(1);
+			}
+		}
+	}
+	span {
+		display: inline-block;
+		font-size: 0.9em;
+		padding-right: 10px;
+		opacity: 0;
+		@include transition(opacity, 0.2s, ease);
+	}
+	i {
+		position: absolute;
+		top: 9px; left: auto;
+		background-color: $green;
+		width: 12px; height: 12px;
+		border-radius: 100%;
+		@include scale(0.5);
+		@include transition(all, 0.2s, ease);
+	}
+
+	// Active state
+	&.active i {
+		border: 1px solid $green;
+		background-color: transparent;
+		@include scale(1);
+	}
+}
+
+/* Hero Section */
+#hero {
+	color: white;
+	position: relative;
+	background-image: url('../images/forest.jpeg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 100%;
+	text-align: center;
+	.cover {
+		position: absolute;
+		opacity: 0.5;
+		top: 0%; left: 0%;
+		width: 100%; height: 100%;
+		z-index: 1;
+		background: $darkgreen;
+	}
+	.container {
+		position: absolute;
+		top: 50%; left: 50%;
+		z-index: 3;
+		text-align: center;
+		@include translate(-50%, -50%);
+	}
+	.name {
+		font-size: 3.7em;
+		color: white;
+		border-bottom: 1px solid rgba(255,255,255,0.3);
+		padding-bottom: 10px;
+		display: inline-block;
+	}
+	.position {
+		font-size: 1.9em; 
+		font-weight: 300;
+		padding-top: 20px;
+	}
+	.social-media {
+		position: absolute;
+		top: 0; right: 0;
+		margin-right: 130px;
+		padding: 40px 0;
+		a {
+			display: inline-block;
+			opacity: 0.9;
+			font-size: 1em;
+			color: white;
+			z-index: 100;
+			padding-left: 20px;
+			line-height: 1.5em;
+			@include transition(opacity, 0.1s, transition);
+			&:hover {
+				opacity: 1;
+			}
+		}
+		i[class^="fa"] {
+			font-size: 1.5em;
+			padding-right: 8px;
+		}
+	}
+	.scroll-down {
+		position: absolute;
+		z-index: 3;
+		padding: 25px 30px;
+		bottom: 0; right: 10%;
+		font-size: 30px;
+		color: white;
+		background: rgba(0,0,0,0.6);
+		border-radius: 2px;
+		&:hover { border-bottom: none; }
+	}
+}
+
+/* Profile */
+.selfie {
+	width: 270px; height: 270px;
+	border-radius: 100%;
+	background: $lightgrey;
+	padding: 12px;
+	margin-top: 20px;
+	margin-left: 70px;
+	pointer-events: none;
+}
+
+/* Experiences */
+#experiences {
+	background: $pinkgrey;
+	h4 { padding-left: 10px; }
+}
+#careers {
+	border-bottom: 1px solid $lightgrey;
+	padding-bottom: 50px;
+}
+#education {
+	padding-top: 50px;
+}
+.career strong {
+	display: block;
+	padding-bottom: 7px;
+}
+.company-contact {
+	padding-top: 5px;
+}
+.location, .site {
+	color: $green;
+	i { padding-right: 7px; }
+}
+.site {
+	margin-left: 13px;
+	font-weight: 300;
+	&:hover { 
+		border-bottom: 1px solid $green;
+
+	}
+}
+.education {
+	padding-bottom: 25px;
+}
+
+/* Abilities */
+#abilities {
+	background: white;
+	h4 {
+		padding-left: 20px;
+	}
+}
+.skills {
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid $lightgrey;
+}
+.skills-row li {
+	padding: 0 10px;
+	border-radius: 3px;
+	i { @include transition(all,0.2s, ease); }
+	&:hover{
+		background: lighten($lightgrey, 10%);
+		cursor: pointer;
+		i { font-size: 1.1em; }
+	}
+}
+.rating {
+	float: right;
+	i { color: $green; }
+}
+.cta-block {
+	padding-top: 50px;
+	text-align: center;
+	width: 60%;
+	margin: 0 auto;
+	.cta-description {
+		font-size: 0.9em;
+		color: lighten($text, 20%);
+	}
+	.cta-button {
+		display: inline-block;
+		padding: 10px 30px;
+		color: white;
+		margin-top: 28px;
+		font-weight: 700;
+		background-color: $green;
+		border-radius: 5px;
+		@include transition(background-color, 0.1s, ease);
+		&:hover {
+			background-color: lighten($green, 8%);
+		}
+	}
+}
+
+/* Interests */
+#interests {
+	background-color: $pinkgrey;
+}
+.interest {
+	position: relative;
+	margin-bottom: 60px;
+	@include clearfix;
+	i {
+		font-size: 8em;
+		color: $green;
+	}
+	&.even i {
+		position: absolute;
+		top: 50%;
+		@include translate(0,-50%);
+	}
+	&.odd i {
+		position: absolute;
+		top: 50%; right: 0;
+		@include translate(0,-50%);
+	}
+	&.even figcaption {
+		margin-left: 12em;
+	}
+	&.odd figcaption {
+		margin-right: 12em;
+	}
+}
+
+/* Contact */
+#contact {
+	background-color: $contactgrey;
+	.section-header {
+		border-bottom: 1px solid lighten($contactgrey, 10%);
+	}
+	.section-title {
+		color: white;
+	}
+	.section-subtitle {
+		color: lighten($contactgrey, 30%);
+	}
+	.social-media-footer {
+		.sm-col {
+			width: 50%;
+			a {
+				display: block;
+				margin-top: 10px;
+				color: white;
+				opacity: 0.5;
+				font-size: 1.3em;
+				&:hover, i {
+					opacity: 0.9;
+					@include transition(opacity, 0.1s, ease);
+				}
+			}
+			i {
+				font-size: 1.7em;
+				margin-right: 20px;
+				opacity: 0.5;
+			}
+			&.left-col { float: left; }
+			&.right-col { float: right; }
+		}
+	}
+	
+}
